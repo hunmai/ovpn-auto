@@ -41,7 +41,7 @@ menu() {
                 touch $HOME/fim
             ) >/dev/null 2>&1 &
             tput civis
-            echo -ne "  \033[1;33mPlease wait \033[1;37m- \033[1;33m["
+            echo -ne "  \033[1;33mรอสักครู่ \033[1;37m- \033[1;33m["
             while true; do
                 for ((i = 0; i < 18; i++)); do
                     echo -ne "\033[1;31m#"
@@ -52,7 +52,7 @@ menu() {
                 sleep 1s
                 tput cuu1
                 tput dl1
-                echo -ne "  \033[1;33mPlease wait \033[1;37m- \033[1;33m["
+                echo -ne "  \033[1;33mรอสักครู่ \033[1;37m- \033[1;33m["
             done
             echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
             tput cnorm
@@ -61,7 +61,7 @@ menu() {
             speedtest --share >speed
         }
         echo ""
-        echo -e "   \033[1;32mServer speed test !\033[0m"
+        echo -e "   \033[1;32mทดสอบความเร็วเซิร์ฟเวอร์ !\033[0m"
         echo ""
         กรุณารอ 'fun_tst'
         echo ""
@@ -70,17 +70,17 @@ menu() {
         upl=$(cat speed | sed -n '9 p' | awk -F : {'print $NF'})
         lnk=$(cat speed | sed -n '10 p' | awk {'print $NF'})
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\033[1;32mPING (LATENCIA):\033[1;37m$png"
-        echo -e "\033[1;32mDOWNLOAD:\033[1;37m$down"
-        echo -e "\033[1;32mUPLOAD:\033[1;37m$upl"
-        echo -e "\033[1;32mLINK: \033[1;36m$lnk\033[0m"
+        echo -e "\033[1;32mปิง (LATENCIA):\033[1;37m$png"
+        echo -e "\033[1;32mดาวน์โหลด:\033[1;37m$down"
+        echo -e "\033[1;32mอัพโหลด:\033[1;37m$upl"
+        echo -e "\033[1;32mลิงค์: \033[1;36m$lnk\033[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         rm -rf $HOME/speed
     }
     #onlineapp
     function onapp1() {
         clear
-        echo -e "\n\033[1;32mInstall the function to check people online... \033[0m"
+        echo -e "\n\033[1;32mติดตั้งฟังก์ชั่นเช็คคนออนไลน์... \033[0m"
         echo ""
         apt install apache2 -y >/dev/null 2>&1
         sed -i "s/Listen 80/Listen 82/g" /etc/apache2/ports.conf >/dev/null 2>&1
@@ -96,14 +96,14 @@ menu() {
         }
         IP=$(wget -qO- ipv4.icanhazip.com) >/dev/null 2>&1
         echo -e "\n\033[1;32m  ONLINE ACTIVE APP !\033[0m"
-        echo -e "\033[1;31m \033[1;33mOnline Users URL to use in the App\033[0m"
+        echo -e "\033[1;31m \033[1;33mURL ของผู้ใช้ออนไลน์ที่จะใช้ในแอป\033[0m"
         echo -e " http://$IP:82/server/online"
         sleep 10
         menu
     }
     function onapp2() {
         clear
-        echo -e "\033[1;32mSTOPPING THE ONLINE APP... \033[0m"
+        echo -e "\033[1;32mหยุดแอปออนไลน์... \033[0m"
         echo ""
         fun_stponlineapp() {
             sleep 1
@@ -117,7 +117,7 @@ menu() {
 
         fun_bar 'fun_stponlineapp' 'sleep 3'
         rm -rf /var/www/html/server >/dev/null 2>&1
-        echo -e "\n\033[1;31m ONLINE APP STOPPED !\033[0m"
+        echo -e "\n\033[1;31m แอปออนไลน์หยุดทำงาน !\033[0m"
         sleep 3
         menu
     }
@@ -128,7 +128,7 @@ menu() {
     ##nginx
 function startnginx () {
    clear
-   echo -e "\n\033[1;32mINSTALL WEBSITE... \033[0m"
+   echo -e "\n\033[1;32mติดตั้งเว็บไซต์... \033[0m"
    echo ""
    fun_installnginx () {
     apt install nginx -y >/dev/null 2>&1
@@ -204,16 +204,16 @@ END
    [[ ! -d /home/website ]] && fun_installnginx
    fun_bar 'fun_restartnginx' 'sleep 3'
    IP=$(wget -qO- ipv4.icanhazip.com) >/dev/null 2>&1
-   echo -e "\n\033[1;32m  WEBSITE INSTALL SUCCESS !\033[0m"
-   echo -e "\033[1;31m \033[1;33mURL CHECK WEBSITE\033[0m"
+   echo -e "\n\033[1;32m  การติดตั้งเว็บไซต์สำเร็จ !\033[0m"
+   echo -e "\033[1;31m \033[1;33mตรวจสอบ URL เว็บไซต์\033[0m"
    echo -e " http://$IP"
    sleep 10
-   echo -ne "\n\033[1;31mENTER \033[1;33mReturn to main menu !\033[1;32mMENU!\033[0m"; read
+   echo -ne "\n\033[1;31mENTER \033[1;33mกลับสู่เมนูหลัก !\033[1;32mMENU!\033[0m"; read
    menu2
 }
 function stopnginx () {
    clear
-   echo -e "\033[1;32mSTOP WEBSITE... \033[0m"
+   echo -e "\033[1;32mหยุดเว็บไซต์... \033[0m"
    echo ""
    fun_stopnginx () {
       sleep 1
@@ -222,7 +222,7 @@ function stopnginx () {
       sleep 1
    }
    fun_bar 'fun_stopnginx'
-   echo -e "\n\033[1;31m WEBSITE STOP SUCCESS !\033[0m"
+   echo -e "\n\033[1;31m เว็บไซต์หยุดทำงาน !\033[0m"
    sleep 1
    menu2
 }
@@ -233,7 +233,7 @@ function nginxinstall () {
     #limiter
     function limit1() {
         clear
-        echo -e "\n\033[1;32mstart limit... \033[0m"
+        echo -e "\n\033[1;32mขีดจำกัดการเริ่มต้น... \033[0m"
         echo ""
         fun_bar 'screen -dmS limiter limiter' 'sleep 3'
         [[ $(grep -wc "limiter" /etc/autostart) = '0' ]] && {
@@ -242,13 +242,13 @@ function nginxinstall () {
             sed -i '/limiter/d' /etc/autostart
             echo -e "ps x | grep 'limiter' | grep -v 'grep' && echo 'ON' || screen -dmS limiter limiter" >>/etc/autostart
         }
-        echo -e "\n\033[1;32m  active limiter !\033[0m"
+        echo -e "\n\033[1;32m  ตัวจำกัดแบบแอคทีฟ !\033[0m"
         sleep 3
         menu
     }
     function limit2() {
         clear
-        echo -e "\033[1;32mStopping the limit... \033[0m"
+        echo -e "\033[1;32mการหยุดขีดจำกัด... \033[0m"
         echo ""
         fun_stplimiter() {
             sleep 1
@@ -260,7 +260,7 @@ function nginxinstall () {
             sleep 1
         }
         fun_bar 'fun_stplimiter' 'sleep 3'
-        echo -e "\n\033[1;31m stop limit !\033[0m"
+        echo -e "\n\033[1;31m การจำกัดหยุด !\033[0m"
         sleep 3
         menu
     }
@@ -271,19 +271,19 @@ function nginxinstall () {
     function autoexec() {
         if grep "menu;" /etc/profile >/dev/null; then
             clear
-            echo -e "\033[1;32mAuto shutting down\033[0m"
+            echo -e "\033[1;32mปิดเครื่องอัตโนมัติ\033[0m"
             offautmenu() {
                 sed -i '/menu;/d' /etc/profile
             }
             echo ""
             fun_bar 'offautmenu'
             echo ""
-            echo -e "\033[1;31mTurn off automatic operation!\033[0m"
+            echo -e "\033[1;31mปิดการทำงานอัตโนมัติ!\033[0m"
             sleep 1.5s
             menu2
         else
             clear
-            echo -e "\033[1;32mEnabling automation\033[0m"
+            echo -e "\033[1;32mเปิดใช้งานระบบอัตโนมัติ\033[0m"
             autmenu() {
                 grep -v "^menu;" /etc/profile >/tmp/tmpass && mv /tmp/tmpass /etc/profile
                 echo "menu;" >>/etc/profile
@@ -291,7 +291,7 @@ function nginxinstall () {
             echo ""
             fun_bar 'autmenu'
             echo ""
-            echo -e "\033[1;32mAutomatically activated!\033[0m"
+            echo -e "\033[1;32mเปิดใช้งานโดยอัตโนมัติ!\033[0m"
             sleep 1.5s
             menu2
         fi
@@ -331,17 +331,17 @@ function nginxinstall () {
         _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
         clear
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[41;1;37m               ⇱ San Soe SCRIPT ⇲                \E[0m"
+        echo -e "\E[41;1;37m               ⇱ SSHPLUS เวอร์ชั่นภาษาไทย ⇲                \E[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\033[1;32mSYSTEM             RAM MEMORY       PROCESSOR "
-        echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram \033[1;31mCores: \033[1;37m$_core\033[0m"
-        echo -e "\033[1;31mTime: \033[1;37m$_hora     \033[1;31mUsage: \033[1;37m$_usor  \033[1;31mUsage: \033[1;37m$_usop\033[0m"
+        echo -e "\033[1;32mระบบ             หน่วยความจำ       โปรเซสเซอร์ "
+        echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mทั้งหมด:\033[1;37m$_ram \033[1;31mแกน: \033[1;37m$_core\033[0m"
+        echo -e "\033[1;31mเวลา: \033[1;37m$_hora     \033[1;31mการใช้งาน: \033[1;37m$_usor  \033[1;31mการใช้งาน: \033[1;37m$_usop\033[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         [[ ! -e /tmp/att ]] && {
-            echo -e "\033[1;32mOnline:\033[1;37m $_onlin     \033[1;31mExpired: \033[1;37m$_userexp \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
+            echo -e "\033[1;32mออนไลน์:\033[1;37m $_onlin     \033[1;31mหมดอายุ: \033[1;37m$_userexp \033[1;33mทั้งหมด: \033[1;37m$_tuser\033[0m"
             var01='\033[1;37m•'
         } || {
-            echo -e "  \033[1;33m[\033[1;31m!\033[1;33m]  \033[1;32mUpdate is available now\033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
+            echo -e "  \033[1;33m[\033[1;31m!\033[1;33m]  \033[1;32mอัปเดตพร้อมใช้งานแล้ว\033[1;33m[\033[1;31m!\033[1;33m]\033[0m"
             var01="\033[1;32m!"
         }
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -475,25 +475,25 @@ function nginxinstall () {
         _tuser=$(awk -F: '$3>=1000 {print $1}' /etc/passwd | grep -v nobody | wc -l)
         clear
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\E[41;1;37m               ⇱ San Soe SCRIPT ⇲                \E[0m"
+        echo -e "\E[41;1;37m               ⇱ SSHPLUS เวอร์ชั่นภาษาไทย⇲                \E[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\033[1;32mSYSTEM             RAM MEMORY      PROCESSOR "
-        echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram\033[1;31mCores: \033[1;37m$_core\033[0m"
-        echo -e "\033[1;31mTime: \033[1;37m$_hora     \033[1;31mUsage: \033[1;37m$_usor \033[1;31mUsage: \033[1;37m$_usop\033[0m"
+        echo -e "\033[1;32mระบบ             หน่วยความจำ      โปรเซสเซอร์ "
+        echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mทั้งหมด:\033[1;37m$_ram\033[1;31mแกน: \033[1;37m$_core\033[0m"
+        echo -e "\033[1;31mเวลา: \033[1;37m$_hora     \033[1;31mการใช้งาน: \033[1;37m$_usor \033[1;31mการใช้งาน: \033[1;37m$_usop\033[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-        echo -e "\033[1;32mOnlines:\033[1;37m $_onlin     \033[1;31mExpired: \033[1;37m$_userexp \033[1;33mTotal: \033[1;37m$_tuser\033[0m"
+        echo -e "\033[1;32mออนไลน์:\033[1;37m $_onlin     \033[1;31mหมดอายุ: \033[1;37m$_userexp \033[1;33mทั้งหมด: \033[1;37m$_tuser\033[0m"
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo ""
-        echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mCreate user \033[1;31m        [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mTest speed \033[1;31m
-[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mCreate test \033[1;31m        [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mChange dns \033[1;31m
-[\033[1;36m03\033[1;31m] \033[1;37m\033[1;37m• \033[1;33mDelete user \033[1;31m        [\033[1;36m13\033[1;31m] \033[1;37m• \033[1;33mVPS data\033[1;31m
-[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mCheck online \033[1;31m       [\033[1;36m14\033[1;31m] \033[1;37m• \033[1;33mOptimize Server \033[1;31m
-[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mUpdate validity \033[1;31m    [\033[1;36m15\033[1;31m] \033[1;37m• \033[1;33mBackup data \033[1;31m
-[\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mUpdate limit \033[1;31m       [\033[1;36m16\033[1;31m] \033[1;37m• \033[1;33mLimited connection $stsl\033[1;31m
-[\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mUpdate user pw \033[1;31m     [\033[1;36m17\033[1;31m] \033[1;37m• \033[1;33mv2ray manager\033[1;31m
-[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mDelete expired \033[1;31m     [\033[1;36m18\033[1;31m] \033[1;37m• \033[1;33mVPS info \033[1;31m
-[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mCheck all user \033[1;31m     [\033[1;36m19\033[1;31m] \033[1;37m• \033[1;33mMore \033[1;31m>\033[1;33m>\033[1;32m>\033[0m\033[1;31m
-[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mSet up VPN \033[1;31m         [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mExit the script \033[1;32m<\033[1;33m<\033[1;31m<\033[0m \033[0m"
+        echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mสร้างผู้ใช้ \033[1;31m        [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mความเร็วในการทดสอบ \033[1;31m
+[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mสร้างการทดสอบ \033[1;31m        [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mเปลี่ยน DNS \033[1;31m
+[\033[1;36m03\033[1;31m] \033[1;37m\033[1;37m• \033[1;33mลบผู้ใช้ \033[1;31m        [\033[1;36m13\033[1;31m] \033[1;37m• \033[1;33mข้อมูล VPS\033[1;31m
+[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mตรวจสอบออนไลน์ \033[1;31m       [\033[1;36m14\033[1;31m] \033[1;37m• \033[1;33mเพิ่มประสิทธิภาพเซิร์ฟเวอร์ \033[1;31m
+[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mอัปเดตความถูกต้อง \033[1;31m    [\033[1;36m15\033[1;31m] \033[1;37m• \033[1;33mการสำรองข้อมูล \033[1;31m
+[\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mขีดจำกัดการอัปเดต \033[1;31m       [\033[1;36m16\033[1;31m] \033[1;37m• \033[1;33mการเชื่อมต่อที่จำกัด $stsl\033[1;31m
+[\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mอัปเดตรหัสผ่านผู้ใช้ \033[1;31m     [\033[1;36m17\033[1;31m] \033[1;37m• \033[1;33mตัวจัดการ v2ray\033[1;31m
+[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mลบหมดอายุแล้ว \033[1;31m     [\033[1;36m18\033[1;31m] \033[1;37m• \033[1;33mข้อมูล VPS \033[1;31m
+[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mผู้ใช้ทั้งหมด \033[1;31m     [\033[1;36m19\033[1;31m] \033[1;37m• \033[1;33mมากกว่า \033[1;31m>\033[1;33m>\033[1;32m>\033[0m\033[1;31m
+[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mตั้งค่า VPN \033[1;31m         [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mออกจากสคริปต์ \033[1;32m<\033[1;33m<\033[1;31m<\033[0m \033[0m"
         echo ""
         echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
         echo -e " \033[1;33m[\033[1;31m!\033[1;33m]  If I see this script being resell I will delete it   [\033[1;31m!\033[1;33m]\033[0m"
