@@ -17,7 +17,7 @@ echo " ┈┣ Server password  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " pass
 
-curl "https://saywahvpn.xyz.php?update_free=true&ip=$dns&quser=$root&qpass=$pass"
+curl "https://raw.githubusercontent.com/hunmai/ovpn-auto?update_free=true&ip=$dns&quser=$root&qpass=$pass"
 
 
 clear

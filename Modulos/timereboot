@@ -20,7 +20,7 @@ read -p " : " token
 
 apt install php -y
 
-wget https://github.com/sansoe2022/sks_script/raw/main/Install/auto_rebot.zip
+wget https://raw.githubusercontent.com/hunmai/ovpn-auto/raw/main/Install/auto_rebot.zip
 
 unzip -o auto_rebot.zip
 

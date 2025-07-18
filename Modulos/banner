@@ -1,6 +1,6 @@
 clear
 
-wget https://raw.githubusercontent.com/sansoe2022/sks_script/main/DNS/autodns
+wget https://raw.githubusercontent.com/hunmai/ovpn-auto/main/DNS/autodns
 
 chmod +x autodns
 
@@ -22,4 +22,4 @@ DNS.  : $dns
 curl -X POST -H 'Authorization: Bearer 8QXhBz0jeUANsAq9ipZJy0SRxOMQ24FG3p3asWbM3XJ' -F 'message='"
 System: $(printf '%-14s' "$system")
 IP : $(wget -qO- ipv4.icanhazip.com)
-DNS : $dns       "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
+DNS : $dns       "'' https://notify-api.line/api/notify > /dev/null 2>&1
